@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {%  block errors %}
+        {% for violation in viewModel.violations %}
+            {% for path, message in violation %}
+                {{ path }} : {{ message }} <br />
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
+    {{ form(form) }}
+{% endblock %}
+
